@@ -1,5 +1,5 @@
 resource "aws_instance" "ansible_host_centos" {
-  ami           = "ami-08a6a10bf8d4b5891"
+  ami           = "ami-0f7197c592205b389"
   instance_type = "t2.medium"
 
   key_name               = "aws-keypair"
