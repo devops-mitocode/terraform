@@ -85,7 +85,7 @@ pipeline{
             options { skipDefaultCheckout() }
             agent{
                 docker {
-                    image 'hashicorp/terraform:1.6.3'
+                    image 'hashicorp/terraform:1.7.4'
                     args '--entrypoint=""'
                 }
             }
