@@ -17,12 +17,14 @@ pipeline{
                     args '--entrypoint=""'
                 }
             }
-            ansiColor('xterm')
             environment{
                 AWS_ACCESS_KEY_ID = credentials('aws-access-key')
                 AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key')
                 AWS_DEFAULT_REGION = 'us-west-2'
             }
+            options {
+                ansiColor('xterm')
+            }            
             steps{
                 sh 'terraform init'
                 sh 'terraform apply -auto-approve'
@@ -55,6 +57,9 @@ pipeline{
             environment {
                 ANSIBLE_HOST_KEY_CHECKING = "False"
             }
+            options {
+                ansiColor('xterm')
+            }            
             steps{
                 
                 script{
@@ -93,7 +98,6 @@ pipeline{
                     args '--entrypoint=""'
                 }
             }
-            ansiColor('xterm')
             environment{
                 AWS_ACCESS_KEY_ID = credentials('aws-access-key')
                 AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key')
