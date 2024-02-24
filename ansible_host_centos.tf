@@ -42,3 +42,7 @@ resource "aws_security_group" "ansible_host_centos_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+output "ec2_instance_ip" {
+  value = aws_instance.ansible_host_centos.public_ip
+}
