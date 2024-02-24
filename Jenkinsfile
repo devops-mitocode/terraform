@@ -28,6 +28,9 @@ pipeline{
 
                 script{
                     def ec2InstanceIp = sh(script: "terraform output -raw ec2_instance_ip", returnStdout: true).trim()
+                    
+                    println "EC2 Instance IP: ${ec2InstanceIp}"
+
                     writeFile file: 'ec2_instance_ip', text: "${ec2InstanceIp}"
                 }
             }
