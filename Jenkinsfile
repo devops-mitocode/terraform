@@ -47,7 +47,10 @@ pipeline{
             when{
                 expression { params.action == 'apply' }
             }
-            options { skipDefaultCheckout() }
+            options { 
+                skipDefaultCheckout()
+                ansiColor('xterm')
+            }
             agent{
                 docker {
                     image 'quay.io/ansible/ansible-runner:stable-2.12-latest'
@@ -56,10 +59,7 @@ pipeline{
             }
             environment {
                 ANSIBLE_HOST_KEY_CHECKING = "False"
-            }
-            options {
-                ansiColor('xterm')
-            }            
+            }          
             steps{
                 
                 script{
