@@ -23,7 +23,7 @@ resource "aws_security_group" "debian_sg" {
 
   ingress {
     from_port   = 2375
-    to_port     = 2375
+    to_port     = 2376
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
