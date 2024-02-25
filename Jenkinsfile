@@ -75,7 +75,7 @@ pipeline{
                     waitUntil {
                         script {
                             try {
-                                sh 'ansible-playbook -i hosts ansible/playbooks/debian_config.yml'
+                                sh 'ansible-playbook -i hosts ansible/playbooks/debian_config.yml -vvv'
                                 return true
                             } catch (Exception e) {
                                 echo 'ansible-playbook failed'
