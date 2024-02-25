@@ -3,39 +3,50 @@
   become: true
   remote_user: admin
   tasks:
-  - name: Install Git
-    apt:
-      name: git
-      state: latest
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        
+    - name: Install Git
+      apt:
+        name: git
+        state: latest
 
-  - name: Install OpenJDK 17
-    apt:
-      name: openjdk-17-jdk
-      state: latest
+    - name: Install OpenJDK 17
+      apt:
+        name: openjdk-17-jdk
+        state: latest
 
-  - name: Install tree
-    apt:
-      name: tree
-      state: latest
+    - name: Install tree
+      apt:
+        name: tree
+        state: latest
 
-  - name: Update apt and install necessary packages
-    apt:
-      update_cache: yes
-      name: ['apt-transport-https', 'ca-certificates', 'curl', 'gnupg', 'lsb-release']
-      state: latest
+    - name: Update apt and install necessary packages
+      apt:
+        update_cache: yes
+        name:
+          [
+            "apt-transport-https",
+            "ca-certificates",
+            "curl",
+            "gnupg",
+            "lsb-release",
+          ]
+        state: latest
 
-  - name: Add Docker GPG key
-    apt_key:
-      url: https://download.docker.com/linux/ubuntu/gpg
-      state: present
+    - name: Add Docker GPG key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
 
-  - name: Add Docker APT repository
-    apt_repository:
-      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable
-      state: present
+    - name: Add Docker APT repository
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable
+        state: present
 
-  - name: Install Docker
-    apt:
-      update_cache: yes
-      name: docker-ce
-      state: latest
+    - name: Install Docker
+      apt:
+        update_cache: yes
+        name: docker-ce
+        state: latest
