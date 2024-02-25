@@ -78,6 +78,10 @@
       regexp: '^ExecStart='
       line: 'ExecStart=/usr/bin/dockerd -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375'
 
+  - name: Reload systemd configuration
+    systemd:
+      daemon_reload: yes
+
   - name: Restart Docker
     systemd:
       name: docker
