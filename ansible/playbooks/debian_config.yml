@@ -1,8 +1,13 @@
 ---
 - hosts: server1
   become: true
-  remote_user: ec2-user
+  remote_user: admin
   tasks:
+  - name: Install Git
+    apt:
+      name: git
+      state: latest
+
   - name: Install OpenJDK 17
     apt:
       name: openjdk-17-jdk
