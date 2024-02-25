@@ -3,25 +3,14 @@
   become: true
   remote_user: admin
   tasks:
-    - name: Update apt cache
-      apt:
-        update_cache: yes
-
-    - name: Install Git
-      apt:
-        name: git
-        state: latest
-
-    - name: Install tree
-      apt:
-        name: tree
-        state: latest
-
     - name: Update apt cache and install necessary packages
       apt:
         update_cache: yes
         name:
+          - git
+          - tree
           - openjdk-17-jdk
+          - software-properties-common
           - apt-transport-https
           - ca-certificates
           - curl
