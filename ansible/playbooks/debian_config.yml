@@ -47,7 +47,7 @@
 
   - name: Add user to docker group
     user:
-      name: ec2-user
+      name: admin
       groups: docker
       append: yes
 
@@ -61,16 +61,22 @@
       destination_port: 2375
       jump: ACCEPT
 
-  - name: Update Docker configuration
-    copy:
-      dest: /etc/docker/daemon.json
-      content: |
-        {
-          "hosts": ["unix:///var/run/docker.sock", "tcp://0.0.0.0:2375"]
-        }
-      owner: root
-      group: root
-      mode: '0644'
+  # - name: Update Docker configuration
+  #   copy:
+  #     dest: /etc/docker/daemon.json
+  #     content: |
+  #       {
+  #         "hosts": ["unix:///var/run/docker.sock", "tcp://0.0.0.0:2375"]
+  #       }
+  #     owner: root
+  #     group: root
+  #     mode: '0644'
+
+  - name: Update Docker systemd service configuration
+    lineinfile:
+      path: /lib/systemd/system/docker.service
+      regexp: '^ExecStart='
+      line: 'ExecStart=/usr/bin/dockerd -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375'
 
   - name: Restart Docker
     systemd:
