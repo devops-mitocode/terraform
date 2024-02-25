@@ -70,7 +70,7 @@ pipeline{
                 sh 'cat hosts'
                 sh 'ansible --version'
 
-                sshagent(credentials: ['centos-private-key']) {
+                sshagent(credentials: ['debian-private-key']) {
 
                     waitUntil {
                         script {
