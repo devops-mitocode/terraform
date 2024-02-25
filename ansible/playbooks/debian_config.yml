@@ -7,15 +7,15 @@
       apt:
         update_cache: yes
         name:
-          - git
-          - tree
-          - openjdk-17-jdk
-          - software-properties-common
-          - apt-transport-https
-          - ca-certificates
-          - curl
-          - gnupg
-          - lsb-release
+        - software-properties-common
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - gnupg
+        - git
+        - tree
+        - openjdk-17-jdk
+        - lsb-release
         state: latest
 
     # - name: Add Docker GPG key
