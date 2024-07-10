@@ -4,6 +4,7 @@ resource "aws_instance" "centos" {
   key_name      = "aws-keypair"
 
   tags = {
-    Name = "centos"
+    Name        = "debian"
+    Environment = "test"
   }
 }
