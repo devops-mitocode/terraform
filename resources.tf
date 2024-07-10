@@ -1,5 +1,5 @@
 resource "aws_instance" "centos" {
-  ami           = "ami-043d15fdde2ef3fe5"
+  ami           = "ami-0c2272b2da6755fab"
   instance_type = "t2.micro"
   key_name      = "aws-keypair"
 
