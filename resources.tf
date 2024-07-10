@@ -14,7 +14,7 @@ resource "aws_instance" "windows" {
   instance_type          = "t2.micro"
   key_name               = "aws-keypair"
   tags = {
-    Name = "Windows"
+    Name = "windows"
   }
 }
 
