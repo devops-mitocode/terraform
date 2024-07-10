@@ -5,6 +5,6 @@ resource "aws_instance" "debian" {
 
   tags = {
     Name        = "debian"
-    Environment = "test"
+    Environment = "calidad"
   }
 }
