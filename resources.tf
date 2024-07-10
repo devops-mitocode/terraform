@@ -20,7 +20,7 @@
 
 resource "aws_instance" "centos" {
   ami           = "ami-070c0059c28d778a6"
-  instance_type = "t2.micro"
+  instance_type = "t2.medium"
   key_name      = "aws-keypair"
 
   tags = {
