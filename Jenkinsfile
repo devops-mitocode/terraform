@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('terraform') {
             steps {
-                sh 'terraform --version'
+                sh 'terraform -help'
             }
         }
     }
