@@ -8,11 +8,6 @@ resource "aws_instance" "linux" {
     Name = "debian"
     Environment = "test"
   }
-
-  root_block_device {
-    volume_size = 20
-    volume_type = "gp2"
-  }
 }
 
 resource "aws_security_group" "debian_sg" {
