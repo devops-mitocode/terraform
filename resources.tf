@@ -1,6 +1,6 @@
 resource "aws_instance" "debian" {
   ami           = "ami-03e383d33727f4804"
-  instance_type = "t3.micro"
+  instance_type = "t2.medium"
 
   key_name = "aws-keypair"
   vpc_security_group_ids = [aws_security_group.debian_sg.id]
