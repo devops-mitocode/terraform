@@ -5,6 +5,9 @@ pipeline {
             args '--entrypoint=""'
         }
     }
+    parameters{
+        choice(name: 'action', choices: ['select', 'apply', 'destroy'], description: 'Terraform action')
+    }
     stages {
         stage('terraform') {
             steps {
