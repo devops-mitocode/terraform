@@ -5,8 +5,8 @@ resource "aws_instance" "debian" {
   key_name = "aws-keypair"
   vpc_security_group_ids = [aws_security_group.debian_sg.id]
   tags = {
-    Name = "Debian"
-    Environment = "Test"
+    Name = "debian"
+    Environment = "test"
   }
 }
 
