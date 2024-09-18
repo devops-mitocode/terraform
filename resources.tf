@@ -10,6 +10,18 @@ resource "aws_instance" "linux" {
   }
 }
 
+resource "aws_instance" "windows" {
+  ami           = "ami-0845068028e672a07"
+  instance_type = "t2.medium"
+
+  key_name = "aws-keypair"
+  vpc_security_group_ids = [aws_security_group.debian_sg.id]
+  tags = {
+    Name = "windows"
+    Environment = "qa"
+  }
+}
+
 resource "aws_security_group" "debian_sg" {
   name = "debian-sg"
 
