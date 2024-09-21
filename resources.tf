@@ -1,26 +1,38 @@
-resource "aws_instance" "linux" {
-  ami           = "ami-03e383d33727f4804"
+resource "aws_instance" "centos" {
+  ami           = "ami-0a7e20852fffed294"
   instance_type = "t2.medium"
 
   key_name = "aws-keypair"
   vpc_security_group_ids = [aws_security_group.debian_sg.id]
   tags = {
-    Name = "debian"
+    Name = "centos"
     Environment = "test"
   }
 }
 
-resource "aws_instance" "windows" {
-  ami           = "ami-0845068028e672a07"
-  instance_type = "t2.medium"
+# resource "aws_instance" "linux" {
+#   ami           = "ami-03e383d33727f4804"
+#   instance_type = "t2.medium"
 
-  key_name = "aws-keypair"
-  vpc_security_group_ids = [aws_security_group.debian_sg.id]
-  tags = {
-    Name = "windows"
-    Environment = "qa"
-  }
-}
+#   key_name = "aws-keypair"
+#   vpc_security_group_ids = [aws_security_group.debian_sg.id]
+#   tags = {
+#     Name = "debian"
+#     Environment = "test"
+#   }
+# }
+
+# resource "aws_instance" "windows" {
+#   ami           = "ami-0845068028e672a07"
+#   instance_type = "t2.medium"
+
+#   key_name = "aws-keypair"
+#   vpc_security_group_ids = [aws_security_group.debian_sg.id]
+#   tags = {
+#     Name = "windows"
+#     Environment = "qa"
+#   }
+# }
 
 resource "aws_security_group" "debian_sg" {
   name = "debian-sg"
