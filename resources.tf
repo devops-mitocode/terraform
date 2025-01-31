@@ -11,8 +11,8 @@ resource "aws_instance" "linux" {
 }
 
 resource "aws_instance" "windows" {
-  ami           = "ami-0143099abefebbe08"
-  instance_type = "t2.medium"
+  ami           = "ami-00aba64d12d376282"
+  instance_type = "t3.medium"
   key_name = "aws-keypair"
 
   vpc_security_group_ids = [aws_security_group.jenkins-nodes-sg.id]
