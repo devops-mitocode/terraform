@@ -1,5 +1,5 @@
 resource "aws_instance" "linux" {
-  ami           = ""
+  ami           = "ami-03e383d33727f4804"
   instance_type = "t2.medium"
   key_name      = "aws-keypair"
 
@@ -11,7 +11,7 @@ resource "aws_instance" "linux" {
 }
 
 resource "aws_instance" "windows" {
-  ami           = ""
+  ami           = "ami-00aba64d12d376282"
   instance_type = "t2.medium"
   key_name = "aws-keypair"
 
