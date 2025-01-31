@@ -9,6 +9,7 @@ pipeline {
         stage('terraform') {
             steps {
                 sh 'terraform --version'
+                sh 'env | sort'
             }
         }
     }
