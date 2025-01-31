@@ -11,7 +11,7 @@ resource "aws_instance" "linux" {
 }
 
 resource "aws_instance" "windows" {
-  ami           = "ami-00aba64d12d376282"
+  ami           = "ami-0143099abefebbe08"
   instance_type = "t2.medium"
   key_name = "aws-keypair"
 
