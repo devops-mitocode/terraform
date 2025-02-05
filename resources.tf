@@ -76,10 +76,10 @@ resource "aws_security_group" "jenkins-nodes-sg" {
   }
 }
 
-output "aws_instance_linux_public_ip" {
-  value = aws_instance.linux.public_ip
-}
+# output "aws_instance_linux_public_ip" {
+#   value = aws_instance.linux.public_ip
+# }
 
-output "aws_instance_windows_public_ip" {
-  value = aws_instance.windows.public_ip
-}
+# output "aws_instance_windows_public_ip" {
+#   value = aws_instance.windows.public_ip
+# }
