@@ -1,5 +1,31 @@
-resource "aws_instance" "linux" {
-  ami           = "ami-03e383d33727f4804"
+# resource "aws_instance" "linux" {
+#   ami           = "ami-03e383d33727f4804"
+#   instance_type = "t2.medium"
+
+#   key_name      = "aws-keypair"
+
+#   vpc_security_group_ids = [aws_security_group.jenkins-nodes-sg.id]
+
+#   tags = {
+#     Name = "linux"
+#   }
+# }
+
+# resource "aws_instance" "windows" {
+#   ami           = "ami-00aba64d12d376282"
+#   instance_type = "t3.medium"
+  
+#   key_name = "aws-keypair"
+
+#   vpc_security_group_ids = [aws_security_group.jenkins-nodes-sg.id]
+#   tags = {
+#     Name = "windows"
+#     Environment = "qa"
+#   }
+# }
+
+resource "aws_instance" "centos" {
+  ami           = "ami-041ce8ef36f4f546b"
   instance_type = "t2.medium"
 
   key_name      = "aws-keypair"
@@ -7,20 +33,7 @@ resource "aws_instance" "linux" {
   vpc_security_group_ids = [aws_security_group.jenkins-nodes-sg.id]
 
   tags = {
-    Name = "linux"
-  }
-}
-
-resource "aws_instance" "windows" {
-  ami           = "ami-00aba64d12d376282"
-  instance_type = "t3.medium"
-  
-  key_name = "aws-keypair"
-
-  vpc_security_group_ids = [aws_security_group.jenkins-nodes-sg.id]
-  tags = {
-    Name = "windows"
-    Environment = "qa"
+    Name = "centos"
   }
 }
 
@@ -34,12 +47,26 @@ resource "aws_security_group" "jenkins-nodes-sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  # ingress {
+  #   from_port   = 3389
+  #   to_port     = 3389
+  #   protocol    = "tcp"
+  #   cidr_blocks = ["0.0.0.0/0"]
+  # }
+
   ingress {
-    from_port   = 3389
-    to_port     = 3389
+    from_port   = 8080
+    to_port     = 8080
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  ingress {
+    from_port   = 9990
+    to_port     = 9990
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }  
 
   egress {
     from_port       = 0
