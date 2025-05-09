@@ -5,10 +5,10 @@ pipeline {
         }
     }
     stages {
-        stage('terraform') {
+        stage('Package') {
             steps {
-                echo 'terraform'
+                sh 'env | sort'
             }
-        }      
+        }     
     }   
 }
