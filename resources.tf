@@ -4,7 +4,7 @@ resource "aws_instance" "web" {
   key_name      = "ec2-user"
 
   tags = {
-    Name = "HelloWorld"
+    Name = "amazon-linux-2"
   }
 
   root_block_device {
