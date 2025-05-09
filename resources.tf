@@ -6,4 +6,9 @@ resource "aws_instance" "web" {
   tags = {
     Name = "HelloWorld"
   }
+
+  root_block_device {
+    volume_size = 20
+    volume_type = "gp2"
+  }
 }
