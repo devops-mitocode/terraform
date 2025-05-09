@@ -1,13 +1,13 @@
 pipeline {
     agent {
         docker {
-            image 'maven:3.8.8-eclipse-temurin-17-alpine'
+            image 'hashicorp/terraform:1.11.4'
         }
     }
     stages {
-        stage('Package') {
+        stage('terraform') {
             steps {
-                sh 'env | sort'
+                sh 'terraform --version'
             }
         }     
     }   
