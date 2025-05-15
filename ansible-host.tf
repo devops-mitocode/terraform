@@ -41,3 +41,7 @@ resource "aws_security_group" "amazon-linux-sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+output "aws_instance_amazon-linux_public_ip" {
+  value = aws_instance.amazon-linux.public_ip
+}
