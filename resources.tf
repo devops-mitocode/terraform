@@ -10,7 +10,7 @@ resource "aws_instance" "amazon-linux" {
   }
 
   root_block_device {
-    volume_size = 25
+    volume_size = 15
     volume_type = "gp2"
   }
 }
