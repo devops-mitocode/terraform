@@ -6,7 +6,7 @@ resource "aws_instance" "amazon-linux-2" {
   vpc_security_group_ids = [aws_security_group.amazon-linux-sg.id]
 
   tags = {
-    Name = "amazon-linux-20"
+    Name = "amazon-linux-2"
   }
 
   root_block_device {
