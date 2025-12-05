@@ -5,10 +5,35 @@ pipeline {
             args '--entrypoint=""'
         }
     }
+    parameters {
+        choice(name: 'action', choices: ['select', 'apply', 'destroy'], description: 'Terraform action')
+    }
+    environment {
+        AWS_ACCESS_KEY_ID = credentials('aws-access-key')
+        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key')
+        AWS_REGION = 'us-west-2'
+    }  
     stages {
-        stage('terraform') {
+        stage('init') {
             steps {
-                sh 'terraform --version'
+                sh 'env | sort'
+                sh 'terraform init'
+            }
+        }
+        stage('apply') {
+            when {
+                expression { params.action == 'apply' }
+            }
+            steps {
+                sh 'terraform apply -auto-approve'
+            }
+        }
+        stage('destroy') {
+            when {
+                expression { params.action == 'destroy' }
+            }
+            steps {
+                sh 'terraform destroy -auto-approve'
             }
         }
     }
