@@ -1,5 +1,5 @@
 resource "aws_instance" "linux" {
-  ami           = ""
+  ami           = "ami-081ac37fe26dacc98"
   instance_type = "t2.medium"
 
   key_name      = "terraform-keypair"
@@ -12,7 +12,7 @@ resource "aws_instance" "linux" {
 }
 
 resource "aws_instance" "windows" {
-  ami           = ""
+  ami           = "ami-0c70d556495b25a90"
   instance_type = "t3.medium"
  
   key_name = "terraform-keypair"
