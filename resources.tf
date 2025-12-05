@@ -1,4 +1,4 @@
-resource "aws_instance" "amazon_linux" {
+resource "aws_instance" "amazon_linux_2023" {
   ami           = "ami-02b297871a94f4b42"
   instance_type = "t2.medium"
 
