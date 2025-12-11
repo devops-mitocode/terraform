@@ -7,7 +7,7 @@ resource "aws_instance" "amazon_linux" {
   vpc_security_group_ids = [aws_security_group.amazon_linux_sg.id]
 
   tags = {
-    Name = "amazon-linux"
+    Name = "ansible-host"
   }
 
   root_block_device {
@@ -47,4 +47,8 @@ resource "aws_security_group" "amazon_linux_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+}
+
+output "amazon_linux_public_ip" {
+  value = aws_instance.amazon_linux.public_ip
 }
