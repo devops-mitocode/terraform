@@ -12,7 +12,7 @@ resource "aws_instance" "linux" {
 }
 
 resource "aws_instance" "windows" {
-  ami           = "ami-0ca79655a526bd782"
+  ami           = "ami-07a73e7966fb8ae9d"
   instance_type = "t3.medium"
  
   key_name = "terraform-keypair"
