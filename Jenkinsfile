@@ -5,8 +5,16 @@ pipeline {
             args '--entrypoint=""'
         }
     }
+    options {
+        ansiColor('xterm')
+    }    
     parameters {
         choice(name: 'action', choices: ['select', 'apply', 'destroy'], description: 'Terraform action')
+    }
+    environment {
+        AWS_ACCESS_KEY_ID = credentials('aws-access-key')
+        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key')
+        AWS_REGION = 'us-west-2'
     }    
     stages {
         stage('init') {
